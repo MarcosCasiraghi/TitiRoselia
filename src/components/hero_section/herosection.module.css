@@ -1,0 +1,52 @@
+/* Hero section */
+.hero {
+    height: 100vh;
+    /* Full screen height */
+    background: url('/public/images/pattern2.png') no-repeat center center/cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    /* Ensures it sits on top of other content */
+    background-attachment: scroll;
+    /* Keeps the background fixed */
+    background-size: cover;
+    background-position: center;
+}
+
+.logo {
+    position: fixed; /* Fixes the logo in place */
+    top: 50%; /* Centers vertically */
+    left: 50%; /* Centers horizontally */
+    transform: translate(-50%, -50%); /* Corrects the offset to ensure true centering */
+    max-width: 300px; /* Adjust size of the logo */
+    z-index: 0; /* Lower z-index to place logo behind the content */
+    transition: opacity 0.2s ease-out;
+    
+}
+
+.arrow {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    cursor: pointer;
+    animation: bounce 1.5s infinite ease-in-out;
+    z-index: 2;
+    color: #201b5b;
+}
+
+/* Bounce animation */
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translate(-50%, 0);
+    }
+
+    50% {
+        transform: translate(-50%, -10px);
+    }
+}

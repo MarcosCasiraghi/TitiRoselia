@@ -1,0 +1,46 @@
+.imageContainer {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--mantine-radius-md);
+    max-width: 300px;
+}
+
+.text {
+    color: #201b5b;
+    opacity: 0.8;
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    position: relative;
+    cursor: pointer;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.image {
+    width: 100%;
+    transition: opacity 0.2s ease-in-out; /* Smooth opacity transition */
+    opacity: 1; /* Make sure image1 is visible by default */
+    object-position: 50% 55%;
+}
+
+.imageNew {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0; /* Make image2 invisible by default */
+    transition: opacity 0.2s ease-in-out; /* Smooth opacity transition */
+}
+
+.card:hover .image {
+    opacity: 0; /* Fade out image1 when hovering */
+}
+
+.card:hover .imageNew {
+    opacity: 1; /* Fade in image2 when hovering */
+}

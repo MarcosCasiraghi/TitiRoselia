@@ -1,0 +1,147 @@
+.header {
+  height: 56px;
+  background-color: var(--mantine-color-body);
+  border-bottom: 1px solid var(--mantine-color-gray-3);
+  position: sticky; /* This makes the header stick */
+  top: 0; /* Keep it at the top of the screen */
+  z-index: 10; /* Ensure it's on top of other content */
+  width: 100%; /* Ensure the header spans the full width */
+}
+
+
+.inner {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the logo */
+  position: relative;
+}
+
+.logo {
+  height: 40px;
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); /* Center it horizontally */
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center; /* Centers vertically */
+  justify-content: center; /* Optional: centers horizontally */
+}
+
+.group {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 0;
+}
+
+.button {
+  position: absolute !important;
+  right: 0;
+  background-color: #201b5b !important;
+}
+
+
+.menuButton, .link, .link2, .button {
+  display: flex;
+  align-items: center;  /* Ensures consistent vertical alignment */
+}
+
+
+.link {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: var(--mantine-font-size-sm);
+  font-weight: 400 !important;
+  
+  color: var(--mantine-color-gray-7) !important;  /* Override Mantine */
+  padding: 8px 12px;
+  border-radius: var(--mantine-radius-sm);
+  text-decoration: none !important;  /* Remove underline */
+}
+
+.linkLabel {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--mantine-color-gray-9)
+}
+
+.dropdown_arrow {
+  margin-top: 5px;
+  margin-left: 4px;
+}
+
+.link2 {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--mantine-color-gray-9) !important;  /* Override Mantine */
+  border-radius: var(--mantine-radius-sm);
+  text-decoration: none !important;  /* Remove underline */
+}
+
+.link2:hover {
+  background-color: var(--mantine-color-gray-2);
+}
+
+.menuButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 12px;
+  font-size: var(--mantine-font-size-sm);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--mantine-color-gray-7);
+}
+
+.menuButton:hover {
+  background-color: var(--mantine-color-gray-2);
+}
+
+
+.drawerContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+}
+
+.menuSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.menuTitle {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--mantine-color-gray-9);
+  margin-bottom: 6px;
+}
+
+.subLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-left: 10px; /* Indent sublinks */
+}
+
+.subLink {
+  font-size: var(--mantine-font-size-sm);
+  font-weight: 400 !important;
+  color: var(--mantine-color-gray-7) !important;
+  text-decoration: none;
+  padding: 4px 0;
+}
+
+.subLink:hover {
+  color: var(--mantine-color-blue-7);
+}

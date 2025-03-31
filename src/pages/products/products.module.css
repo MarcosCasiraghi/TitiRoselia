@@ -1,0 +1,46 @@
+.full_size {
+    width: 100%;
+    min-height: 100vh; /* Ensure the page takes at least the full viewport height */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+}
+
+.container {
+    flex: 1; /* This makes the content area expand to fill the available space */
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+    height: 100%;
+}
+
+.product_content {
+    overflow: auto;
+}
+
+.title_holder {
+    display: flex;
+    align-items: left;
+    width: fit-content;
+}
+
+.title {
+    padding-top: 1rem;
+}
+
+.skeleton {
+    width: 100%;
+    min-width: 270px;
+}
+
+@media (max-width: 960px) {
+    .skeleton {
+        min-width: 360px;
+    }
+}
+
+.footer {
+    margin-top: auto; /* This pushes the footer to the bottom */
+}

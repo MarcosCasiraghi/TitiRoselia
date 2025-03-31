@@ -1,0 +1,108 @@
+/* titirosa.module.css */
+
+.history {
+    display: flex;
+    background-color: #201b5b;
+    margin-bottom: 0;
+    height: 60vh;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    margin-top: 0.5rem;
+}
+
+.column {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.historyMobile {
+    display: flex;
+    flex-direction: column;
+    background-color: #201b5b;
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 0.5rem;
+}
+
+/* Contenedor de la imagen y textos */
+.image_container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos para la imagen */
+.abuelas {
+    width: 550px;
+    /* Ancho fijo */
+    /* max-width: 800px; */
+    height: auto;
+    object-fit: contain;
+    position: relative;
+    z-index: 1;
+}
+
+/* Estilos para los textos que se superponen */
+.text_left {
+    position: absolute;
+    color: #f1f0ec;
+    font-size: 34px;
+    left: 35px;
+    /* Posición fija desde la izquierda */
+    bottom: 190px;
+    /* Posición fija desde abajo */
+    z-index: 2;
+    margin: 0;
+}
+
+.text_right {
+    position: absolute;
+    color: #f1f0ec;
+    font-size: 34px;
+    right: 35px;
+    /* Posición fija desde la derecha */
+    bottom: 190px;
+    /* Posición fija desde abajo */
+    z-index: 2;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .abuelas {
+        width: 400px;
+    }
+
+    .text_left {
+        bottom: 125px;
+        left: 30px;
+    }
+
+    .text_right {
+        bottom: 125px;
+        right: 30px;
+    }
+}
+
+/* Estilos para la columna de texto */
+.title {
+    font-size: 40px;
+    color: #f1f0ec;
+    padding-bottom: 1rem;
+    margin: 0;
+}
+
+.text_container {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.description {
+    color: #f1f0ec;
+    text-align: justify;
+    margin: 0;
+}

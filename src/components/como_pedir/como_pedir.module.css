@@ -1,0 +1,31 @@
+
+.content {
+    height: 70vh;
+    background-color: #201b5b;
+}
+
+.title {
+    color: #f1f0ec;
+    padding-top: 1rem;
+    font-size: xx-large;
+}
+
+.hint {
+    color: #f1f0ec;
+}
+
+.contact_button {
+    background-color: #f1f0ec !important;
+}
+
+.button_text {
+    color: #201b5b;
+}
+
+.seperate {
+    flex-grow: 1;
+    height: auto !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
