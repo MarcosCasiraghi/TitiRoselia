@@ -33,12 +33,16 @@ function ComoPedir() {
                     Consulta por opciones sin TACC
                 </Text>
             </Grid.Col>
-            <Grid.Col span={5} justify="center" align="center">
-                <Image
-                    src="/images/tres_chicas.webp"
-                    h={400}
-                    w={300}
-                />
+            <Grid.Col span={5} className={styles.masonry}>
+                <div className={styles.masonry_container}>
+                    <div className={styles.column}>
+                        <Image src="/images/tres_chicas.webp" className={styles.image} />
+                        <Image src="/images/petit_above.webp" className={styles.image} />
+                    </div>
+                    <div className={styles.centered}>
+                        <Image src="/images/dos_chicas.webp" className={styles.image} />
+                    </div>
+                </div>
             </Grid.Col>
         </Grid>
     )
