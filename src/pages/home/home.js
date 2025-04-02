@@ -16,11 +16,6 @@ import ComoPedir from '../../components/como_pedir/como_pedir';
 
 function Home() {
 
-    // const isMobile = useMediaQuery("(max-width: 768px)");
-    // const slideSize = isMobile ? "33.333333%" : "20%";
-    // const slideHeight = isMobile ? "150px" : "300px"
-
-
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
