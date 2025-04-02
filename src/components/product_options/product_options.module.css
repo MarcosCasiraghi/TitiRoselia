@@ -1,13 +1,17 @@
 .half_content {
-    height: 80vh;
+    height: 100vh;
     text-align: center;
     position: relative;
     z-index: 2;
     width: 100%;
-    background-image: url('/public/images/fondo_longitudinal.jpg');
+    background-image: url('/public/images/fondo_longitudinal2.webp');
     background-size: cover; /* Ensures the image covers the section */
-    background-position: center 40%; /* Adjust to focus on the center */
+    background-position: center 15%; /* Adjust to focus on the center */
     background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -17,7 +21,9 @@
     color: #201b5b;
     padding: 20px;
     border-radius: 10px;
-    background: transparent; /* Optional: Add some contrast */
+      
+    /* height: 100%; */
+    margin-bottom: 4rem;
 }
 
 .title {
@@ -54,13 +60,18 @@
         padding-top: 1rem;
         font-size: 1.8rem;
         padding-bottom: 1rem;
+        background-color: rgb(241, 240, 236, 0.5);
+        display: inline-block;
+        border-radius: 0.5rem;
+        padding-left: 1.2rem;
+        padding-right: 1.2rem;
     }
 
 
     .btn {
         font-size: 0.9rem;
         padding: 8px 15px;
-        background-color: rgb(241, 240, 236, 0.7);
+        background-color: rgb(241, 240, 236, 0.5);
         border: 2px solid transparent;
         color: #201b5b;
     }

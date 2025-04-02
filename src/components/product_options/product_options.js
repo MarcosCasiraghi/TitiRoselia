@@ -1,5 +1,6 @@
 import styles from './product_options.module.css'
 import { useNavigate } from 'react-router-dom';
+import { Text } from "@mantine/core"
 
 function ProductOptions() {
     const navigate = useNavigate()
@@ -15,7 +16,7 @@ function ProductOptions() {
     return (
         <section className={styles.half_content}>
             <div className={styles.overlay}>
-                <h1 className={styles.title}>¡Conocé nuestras tortas!</h1>
+                <Text className={styles.title}>¡Conocé nuestras tortas!</Text>
                 <div className={styles.button_container}>
                     <button variant='outline' className={styles.btn} onClick={() => handleClick("grande")}>Tortas grandes</button>
                     <button variant='outline' className={styles.btn} onClick={() => handleClick("chica")}>Tortas chicas</button>
