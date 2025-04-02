@@ -30,12 +30,12 @@ export default function Footer() {
                             </span>
                     }
                     <a href="https://wa.me/541138230020" target="_blank" rel="noopener noreferrer">
-                        <ActionIcon size="lg" variant="subtle" className={classes.icon}>
+                        <ActionIcon size="lg" variant="subtle" className={classes.icon2}>
                             <IconBrandWhatsapp size={23} stroke={1.5} />
                         </ActionIcon>
                     </a>
                     <a href="https://instagram.com/titiroselia" target="_blank" rel="noopener noreferrer">
-                        <ActionIcon size="lg" variant="subtle" className={classes.icon}>
+                        <ActionIcon size="lg" variant="subtle" className={classes.icon2}>
                             <IconBrandInstagram size={23} stroke={1.5} />
                         </ActionIcon>
                     </a>

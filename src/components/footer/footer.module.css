@@ -33,6 +33,12 @@
     justify-content: center;
   }
 
-  .icon {
+  .icon,
+  .icon2 {
     color: #201b5b;
+  }
+
+  .icon2:hover{
+    background-color: #201b5b;
+    color: #f1f0ec;
   }
