@@ -13,6 +13,7 @@
     /* Keeps the background fixed */
     background-size: cover;
     background-position: center;
+    overflow-x: hidden;
 }
 
 .logo {
@@ -23,7 +24,7 @@
     max-width: 300px; /* Adjust size of the logo */
     z-index: 0; /* Lower z-index to place logo behind the content */
     transition: opacity 0.2s ease-out;
-    
+    overflow-x: hidden;
 }
 
 .arrow {
@@ -49,4 +50,8 @@
     50% {
         transform: translate(-50%, -10px);
     }
+}
+
+body {
+    overflow-x: hidden;
 }
