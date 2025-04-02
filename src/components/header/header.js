@@ -4,6 +4,7 @@ import { useDisclosure } from '@mantine/hooks';
 import classes from './header.module.css';
 import '@mantine/core/styles.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useEffect, useCallback } from 'react';
 
 
 const links = [
@@ -33,14 +34,29 @@ export default function HeaderMenu() {
     const navigate = useNavigate();
     const location = useLocation();
 
-    const handleScroll = (id) => {
+    const handleScroll = useCallback((id, shouldClose = true) => {
         const element = document.getElementById(id);
         if (element) {
             const navbarHeight = document.querySelector(`.${classes.header}`)?.offsetHeight || 56; // Default height if not found
             const elementPosition = element.getBoundingClientRect().top + window.scrollY; // Get absolute position
             window.scrollTo({ top: elementPosition - navbarHeight - 10, behavior: 'smooth' });
         }
-    };
+        if( shouldClose) {
+            close()
+        }
+    }, [close]);
+
+    useEffect(() => {
+        let timeoutId;
+        if (location.state?.scrollTo) {
+            timeoutId = setTimeout(() => {
+                handleScroll(location.state.scrollTo, false);
+            }, 300);
+        }
+        return () => {
+            if (timeoutId) clearTimeout(timeoutId);
+        };
+    }, [location.state, handleScroll]);
 
     const desktopNavItems = links.map((link) => {
         if (link.links) {
@@ -79,15 +95,11 @@ export default function HeaderMenu() {
                 key={link.label}
                 onClick={(e) => {
                     e.preventDefault();
-                    if (link.scrollTo) {
-                        if (location.pathname === '/') {
-                            handleScroll(link.scrollTo);
-                        } else {
-                            navigate('/');
-                            setTimeout(() => handleScroll(link.scrollTo), 300);
-                        }
+                    if (location.pathname === '/') {
+                        handleScroll(link.scrollTo);
                     } else {
-                        navigate(link.link);
+                        navigate('/');
+                        setTimeout(() => handleScroll(link.scrollTo), 300);
                     }
                 }}
                 underline={false}
@@ -117,17 +129,24 @@ export default function HeaderMenu() {
                 key={link.label}
                 onClick={(e) => {
                     e.preventDefault();
-                    if (link.scrollTo) {
-                        if (location.pathname === '/') {
-                            handleScroll(link.scrollTo);
-                            close()
-                        } else {
-                            navigate('/');
-                            setTimeout(() => handleScroll(link.scrollTo), 300);
-                        }
+                    if (location.pathname === '/') {
+                        // navigate('/', { replace: true });
+                        // window.location.href = '/';
+                        // setTimeout(() => handleScroll(link.scrollTo), 300);
+                        // handleScroll(link.scrollTo);
+
+
+                        navigate('/', { 
+                            replace: true,
+                            state: { scrollTo: link.scrollTo }
+                        });
                     } else {
-                        navigate(link.link);
+                        navigate('/');
+                        setTimeout(() => handleScroll(link.scrollTo), 300);
                     }
+                    close()
+                    // navigate(link.link);
+                    // setTimeout(() => handleScroll(link.scrollTo), 300);
                 }}
                 underline={false}
                 className={classes.link2}
