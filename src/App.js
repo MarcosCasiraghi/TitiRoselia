@@ -4,6 +4,7 @@ import Products from "./pages/products/products";
 import Product from "./pages/product/product"
 import { MantineProvider } from "@mantine/core";
 import "./App.css";
+import NotFound from "./pages/notfound/notfound";
 
 function App() {
   return (
@@ -31,7 +32,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/productos" element={<Products />} />
             <Route path="/productos/:productId" element={<Product />} />
-            {/* <Route path="*" element={<NotFound />} /> Catch-all for 404 */}
+            <Route path="*" element={<NotFound/>} />
           </Routes>
       </Router>
     </MantineProvider>
