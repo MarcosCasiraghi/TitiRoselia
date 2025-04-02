@@ -25,6 +25,7 @@
     z-index: 0; /* Lower z-index to place logo behind the content */
     transition: opacity 0.2s ease-out;
     overflow-x: hidden;
+    will-change: opacity;
 }
 
 .arrow {
