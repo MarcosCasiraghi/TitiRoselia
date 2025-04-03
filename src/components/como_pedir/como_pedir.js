@@ -41,7 +41,7 @@ function ComoPedir() {
                         <Image src="/images/tres_chicas.webp" className={styles.mobileImage} />
                     </Carousel.Slide>
                     <Carousel.Slide>
-                        <Image src="/images/petit_above.webp" className={styles.mobileImage} />
+                        <Image src="/images/chocotorta_chica.webp" className={styles.mobileImage} />
                     </Carousel.Slide>
                     <Carousel.Slide>
                         <Image src="/images/dos_chicas.webp" className={styles.mobileImage} />
@@ -88,7 +88,7 @@ function ComoPedir() {
                 <div className={styles.masonry_container}>
                     <div className={styles.column}>
                         <Image src="/images/tres_chicas.webp" className={styles.image} />
-                        <Image src="/images/petit_above.webp" className={styles.image} />
+                        <Image src="/images/chocotorta_chica.webp" className={styles.image} />
                     </div>
                     <div className={styles.centered}>
                         <Text className={styles.hint}>
