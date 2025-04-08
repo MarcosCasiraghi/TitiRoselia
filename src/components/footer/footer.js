@@ -34,7 +34,7 @@ export default function Footer() {
                             <IconBrandWhatsapp size={23} stroke={1.5} />
                         </ActionIcon>
                     </a>
-                    <a href="https://instagram.com/titiroselia" target="_blank" rel="noopener noreferrer">
+                    <a href="https://instagram.com/titi.roselia" target="_blank" rel="noopener noreferrer">
                         <ActionIcon size="lg" variant="subtle" className={classes.icon2}>
                             <IconBrandInstagram size={23} stroke={1.5} />
                         </ActionIcon>
