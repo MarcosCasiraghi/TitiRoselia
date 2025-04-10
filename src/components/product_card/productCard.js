@@ -11,8 +11,8 @@ function ProductCard({ title, image1, image2, price }) {
         >
             <div className={classes.imageContainer}>
                 <AspectRatio ratio={1 / 1}>
-                    <Image src={image1} className={classes.image} />
-                    <Image src={image2} className={classes.imageNew} />
+                    <Image src={image1} loading='lazy' className={classes.image} />
+                    <Image src={image2} loading='lazy' className={classes.imageNew} />
                 </AspectRatio>
             </div>
             <Text mt={5} size='lg'>

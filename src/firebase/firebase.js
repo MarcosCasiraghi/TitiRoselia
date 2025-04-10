@@ -27,8 +27,13 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 const appCheck = initializeAppCheck(app, {
-  provider: new ReCaptchaV3Provider('6LeFDA8rAAAAAPaBBTGVT1S-DArW5bES4Hhue3ML'),
+  provider: new ReCaptchaV3Provider(process.env.REACT_APP_RECAPTCHA_SITE_KEY),
   isTokenAutoRefreshEnabled: true // Auto-refresh tokens
 });
 
-export { db}
+if (process.env.NODE_ENV === 'development') {
+  // Development mode - use debug token
+  window.FIREBASE_APPCHECK_DEBUG_TOKEN = process.env.REACT_APP_APPCHECK_DEBUG_TOKEN;
+}   
+
+export { db }
