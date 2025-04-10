@@ -12,7 +12,7 @@ const carousel_images = [
     "/images/carousel_home/chocotorta_mitad.webp",
     "/images/carousel_home/minis_1.webp",
     "/images/carousel_home/pistacho_chica_mitad.webp",
-    "/images/carousel_home/minis_2.webp",
+    // "/images/carousel_home/minis_2.webp",
     "/images/carousel_home/rogel.webp",
     "/images/carousel_home/minis_3.webp",
     "/images/carousel_home/rulos_ambas.webp",

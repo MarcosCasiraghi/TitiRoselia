@@ -1,24 +1,43 @@
 import styles from './herosection.module.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { IconChevronCompactDown } from "@tabler/icons-react";
 
 function HeroSection() {
     const [opacity, setOpacity] = useState(1);
     const [showArrow, setShowArrow] = useState(true);
     const [showLogo, setShowLogo] = useState(true);
+    const scrollRef = useRef(null);
 
     // Opacity of logo
     useEffect(() => {
+        let ticking = false;
+        
         const handleScroll = () => {
-            const scrollY = window.scrollY;
-            const newOpacity = Math.max(1 - scrollY / 300, 0);
-            setOpacity(newOpacity);
-            setShowArrow(scrollY < 100);
-            // Hide logo completely when opacity reaches 0
-            setShowLogo(newOpacity > 0);
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const scrollY = window.scrollY;
+                    const newOpacity = Math.max(1 - scrollY / 300, 0);
+                    
+                    // Immediately hide logo when opacity is very low
+                    if (newOpacity < 0.1) {
+                        setShowLogo(false);
+                    } else {
+                        setShowLogo(true);
+                        setOpacity(newOpacity);
+                    }
+                    
+                    setShowArrow(scrollY < 100);
+                    ticking = false;
+                });
+                
+                ticking = true;
+            }
         };
 
         window.addEventListener("scroll", handleScroll, { passive: true });
+        
+        // Initial check
+        handleScroll();
 
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);

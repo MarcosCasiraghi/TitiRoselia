@@ -23,7 +23,7 @@
     transform: translate(-50%, -50%); /* Corrects the offset to ensure true centering */
     max-width: 300px; /* Adjust size of the logo */
     z-index: 0; /* Lower z-index to place logo behind the content */
-    transition: opacity 0.2s ease-out;
+    /* Removed transition to prevent lag on Android */
     overflow-x: hidden;
     will-change: opacity;
 }

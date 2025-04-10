@@ -26,20 +26,18 @@ const app = initializeApp(firebaseConfig);
 // const auth = getAuth(app);
 const db = getFirestore(app);
 
-// Set debug token for development environment BEFORE initializing App Check
 if (process.env.NODE_ENV === 'development') {
   // Development mode - use debug token
   window.FIREBASE_APPCHECK_DEBUG_TOKEN = process.env.REACT_APP_APPCHECK_DEBUG_TOKEN;
-  console.log('Debug token set:', process.env.REACT_APP_APPCHECK_DEBUG_TOKEN);
+  // console.log('Debug token set:', process.env.REACT_APP_APPCHECK_DEBUG_TOKEN);
 }
 
-// Initialize App Check
 const appCheck = initializeAppCheck(app, {
   provider: new ReCaptchaV3Provider(process.env.REACT_APP_RECAPTCHA_SITE_KEY),
   isTokenAutoRefreshEnabled: true // Auto-refresh tokens
 });
 
-console.log('Environment:', process.env.NODE_ENV);
-console.log('ReCaptcha Site Key:', process.env.REACT_APP_RECAPTCHA_SITE_KEY);
+// console.log('Environment:', process.env.NODE_ENV);
+// console.log('ReCaptcha Site Key:', process.env.REACT_APP_RECAPTCHA_SITE_KEY);
 
 export { db }
