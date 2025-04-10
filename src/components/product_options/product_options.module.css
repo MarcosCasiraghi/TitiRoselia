@@ -60,7 +60,7 @@
         padding-top: 1rem;
         font-size: 1.8rem;
         padding-bottom: 1rem;
-        background-color: rgb(241, 240, 236, 0.5);
+        background-color: rgb(241, 240, 236, 0.8);
         display: inline-block;
         border-radius: 0.5rem;
         padding-left: 1.2rem;
@@ -71,7 +71,7 @@
     .btn {
         font-size: 0.9rem;
         padding: 8px 15px;
-        background-color: rgb(241, 240, 236, 0.5);
+        background-color: rgb(241, 240, 236, 0.8);
         border: 2px solid transparent;
         color: #201b5b;
     }

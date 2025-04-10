@@ -23,7 +23,7 @@ const links = [
         scrollTo: 'about-section'
     },
     {
-        label: 'Como pedir',
+        label: 'Cómo pedir',
         link: '/',
         scrollTo: 'como-pedir'
     }

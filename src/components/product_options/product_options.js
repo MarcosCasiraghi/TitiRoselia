@@ -18,9 +18,9 @@ function ProductOptions() {
             <div className={styles.overlay}>
                 <Text className={styles.title}>¡Conocé nuestras tortas!</Text>
                 <div className={styles.button_container}>
-                    <button variant='outline' className={styles.btn} onClick={() => handleClick("grande")}>Tortas grandes</button>
-                    <button variant='outline' className={styles.btn} onClick={() => handleClick("chica")}>Tortas chicas</button>
-                    <button variant='outline' className={styles.btn} onClick={() => handleClick("mini")}>Tortas minis</button>
+                    <button variant='outline' className={styles.btn} onClick={() => handleClick("grande")}>Grandes</button>
+                    <button variant='outline' className={styles.btn} onClick={() => handleClick("chica")}>Chicas</button>
+                    <button variant='outline' className={styles.btn} onClick={() => handleClick("mini")}>Minis</button>
                     <button variant='outline' className={styles.btn} onClick={() => handleClick()}>Ver todo</button>
                 </div>
             </div>
