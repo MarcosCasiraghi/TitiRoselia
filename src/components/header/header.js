@@ -5,6 +5,8 @@ import classes from './header.module.css';
 import '@mantine/core/styles.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useCallback } from 'react';
+import { analytics } from '../../firebase/firebase';
+import { logEvent } from 'firebase/analytics';
 
 
 const links = [
@@ -176,7 +178,18 @@ export default function HeaderMenu() {
                     >
                         <img src="/images/only_logo_outline.png" alt="Logo_outline" className={classes.logo} />
                     </Link>
-                    <Button component='a' href="https://wa.me/541138230020" target="_blank" rel="noopener noreferrer" className={classes.button}>
+                    <Button 
+                        component='a' 
+                        href="https://wa.me/541138230020" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className={classes.button}
+                        onClick={() => {
+                            logEvent(analytics, 'whatsapp_click', {
+                                page_location: window.location.pathname
+                            });
+                        }}
+                    >
                         ¡Contáctanos!
                     </Button>
                     <Burger className={classes.group} opened={opened} onClick={open} size="sm" hiddenFrom="sm" />

@@ -40,4 +40,4 @@ const appCheck = initializeAppCheck(app, {
 // console.log('Environment:', process.env.NODE_ENV);
 // console.log('ReCaptcha Site Key:', process.env.REACT_APP_RECAPTCHA_SITE_KEY);
 
-export { db }
+export { db, analytics }
