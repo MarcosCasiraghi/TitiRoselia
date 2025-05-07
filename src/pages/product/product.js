@@ -10,19 +10,11 @@ import { useMediaQuery } from "@mantine/hooks";
 import { IconBrandWhatsapp } from '@tabler/icons-react';
 
 
-// const carousel_images = [
-//     "/images/carousel_home/cheesecake_grande_chica.png",
-//     "/images/carousel_home/rulos_con_caja.png",
-//     "/images/carousel_home/chicas_cuatro.png",
-//     "/images/carousel_home/nuez_con_caja.png",
-//     "/images/carousel_home/petit_four.png",
-//     "/images/carousel_home/rogel_chico_con_caja.png",
-// ]
-
 const categoryToTitle = new Map([
     ["grande", "Tortas Grandes"],
     ["chica", "Tortas Chicas"],
-    ["mini", "Tortas minis"]
+    ["mini", "Tortas minis"],
+    ["alfajores", "Alfajores"]
 ])
 
 function Product() {
@@ -54,6 +46,10 @@ function Product() {
                 setFirstCol(lines.slice(0, midIndex))
                 setSecondCol(lines.slice(midIndex))
             }
+            if (state.productItem.category === 'alfajores') {
+                const lines = state.productItem.options.split("\\n").filter((line) => line.trim() !== "")
+                setFirstCol(lines)
+            }
             const text = `Hola! Quiero pedir una ${state.productItem.name}`
             setLink(`https://wa.me/541138230020?text=` + encodeURIComponent(text))
         }
@@ -68,6 +64,10 @@ function Product() {
                         setMiddleIndex(midIndex)
                         setFirstCol(lines.slice(0, midIndex))
                         setSecondCol(lines.slice(midIndex))
+                    }
+                    if (data.category === 'alfajores') {
+                        const lines = state.productItem.options.split("\\n").filter((line) => line.trim() !== "")
+                        setFirstCol(lines)
                     }
                     const text = `Hola! Quiero pedir una ${data.name}`
                     setLink(`https://wa.me/541138230020?text=` + encodeURIComponent(text))
@@ -135,7 +135,7 @@ function Product() {
                                             <br />
                                             {product.category === "mini" && (
                                                 <>
-                                                    <Box style={{ display: "flex", flexDirection: isMobile ? "column" : "row", gap: "2rem" }}>
+                                                    <Box style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
                                                         {/* First Column */}
                                                         <List>
                                                             {firstCol && firstCol.length > 0 &&
@@ -150,6 +150,18 @@ function Product() {
                                                             }
                                                         </List>
                                                     </Box>
+                                                    <br />
+                                                </>
+                                            )}
+                                            {product.category === "alfajores" && (
+                                                <>
+                                                    <List>
+                                                        {firstCol && firstCol.length > 0 &&
+                                                            firstCol.map((line, index) => (
+                                                                <List.Item key={index}>{line}</List.Item>
+                                                            ))
+                                                        }
+                                                    </List>
                                                     <br />
                                                 </>
                                             )}
@@ -204,6 +216,18 @@ function Product() {
                                                                 ))}
                                                         </List>
                                                     </Box>
+                                                    <br />
+                                                </>
+                                            )}
+                                            {product.category === "alfajores" && (
+                                                <>
+                                                    <List>
+                                                        {firstCol && firstCol.length > 0 &&
+                                                            firstCol.map((line, index) => (
+                                                                <List.Item key={index}>{line}</List.Item>
+                                                            ))
+                                                        }
+                                                    </List>
                                                     <br />
                                                 </>
                                             )}

@@ -11,7 +11,7 @@ import ImageCarousel from '../../components/image_carousel/image_carousel';
 import TitiRosa from '../../components/titirosa/titirosa';
 import GabiPili from '../../components/gabipili/gabipili';
 import ComoPedir from '../../components/como_pedir/como_pedir';
-
+import Alfajores from '../../components/alfajores/alfajores';
 
 
 function Home() {
@@ -27,6 +27,10 @@ function Home() {
                 <HeaderMenu />
 
                 <ProductOptions />
+
+                <InfiniteSlide />
+
+                <Alfajores />
 
                 <InfiniteSlide />
 

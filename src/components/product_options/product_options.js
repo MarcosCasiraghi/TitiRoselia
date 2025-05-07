@@ -21,7 +21,7 @@ function ProductOptions() {
                     <button variant='outline' className={styles.btn} onClick={() => handleClick("grande")}>Grandes</button>
                     <button variant='outline' className={styles.btn} onClick={() => handleClick("chica")}>Chicas</button>
                     <button variant='outline' className={styles.btn} onClick={() => handleClick("mini")}>Minis</button>
-                    <button variant='outline' className={styles.btn} onClick={() => handleClick()}>Ver todo</button>
+                    {/* <button variant='outline' className={styles.btn} onClick={() => handleClick()}>Ver todo</button> */}
                 </div>
             </div>
         </section>

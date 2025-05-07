@@ -10,7 +10,7 @@ function GabiPili() {
         <div className={styles.about_us_mobile}>
             <div className={styles.image_container}>
                 <img
-                    src="/images/gabiypili.webp"
+                    src="/images/gabiypili_2.webp"
                     alt="gabiypili"
                     className={styles.image}
                 />
@@ -51,7 +51,7 @@ function GabiPili() {
             </Grid.Col>
             <Grid.Col span={5} className={styles.column}>
                 <img
-                    src="/images/gabiypili.webp"
+                    src="/images/gabiypili_2.webp"
                     alt="gabiypili"
                     className={styles.image}
                 />

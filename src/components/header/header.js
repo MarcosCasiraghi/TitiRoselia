@@ -16,6 +16,7 @@ const links = [
             { link: '/productos?categoria=grande', label: 'Tortas grandes' },
             { link: '/productos?categoria=chica', label: 'Tortas chicas' },
             { link: '/productos?categoria=mini', label: 'Tortas minis' },
+            { link: '/productos?categoria=alfajores', label: 'Alfajores' },
             { link: '/productos', label: 'Ver todo' }
         ],
     },
@@ -132,12 +133,6 @@ export default function HeaderMenu() {
                 onClick={(e) => {
                     e.preventDefault();
                     if (location.pathname === '/') {
-                        // navigate('/', { replace: true });
-                        // window.location.href = '/';
-                        // setTimeout(() => handleScroll(link.scrollTo), 300);
-                        // handleScroll(link.scrollTo);
-
-
                         navigate('/', { 
                             replace: true,
                             state: { scrollTo: link.scrollTo }
@@ -147,8 +142,6 @@ export default function HeaderMenu() {
                         setTimeout(() => handleScroll(link.scrollTo), 300);
                     }
                     close()
-                    // navigate(link.link);
-                    // setTimeout(() => handleScroll(link.scrollTo), 300);
                 }}
                 underline={false}
                 className={classes.link2}
