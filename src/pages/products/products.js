@@ -45,43 +45,40 @@ function Products() {
   return (
     <div className={styles.full_size}>
       <HeaderMenu />
-      <Container>
-        <div className={styles.container}>
-          <div className={styles.title_holder}>
-            <Text size='xl' className={styles.title}>
-              {categoryToTitle.get(category) || "Nuestros Productos"}
-            </Text>
-          </div>
-
-          <Container py="xl" size='lg' fluid className={styles.product_content}>
-            <SimpleGrid
-              cols={isMobile ? 1 : 3}
-              spacing="md"
-            >
-              {loading ?
-                Array(6).fill(0).map((_, index) => (
-                  <Skeleton key={index} className={styles.skeleton} height={360} radius="md" />
-                ))
-                : (
-                  products.length > 0 ?
-                    products.map(product =>
-                      <Link to={`/productos/${product.id}`} state={{ productItem: product }} style={{ textDecoration: 'none' }} key={product.id}>
-                        <ProductCard
-                          title={product.name}
-                          image1={product.image1}
-                          image2={product.image2}
-                          price={"$" + product.price}
-                        />
-                      </Link>
-                    ) : (
-                      <p>No hay productos en esta categoría.</p>
-                    ))}
-            </SimpleGrid>
-          </Container>
+      <Container className={styles.container}>
+        <div className={styles.title_holder}>
+          <Text size='xl' className={styles.title}>
+            {categoryToTitle.get(category) || "Nuestros Productos"}
+          </Text>
         </div>
-      </Container>
 
-      <Footer className={styles.footer} />
+        <Container py="xl" size='lg' fluid className={styles.product_content}>
+          <SimpleGrid
+            cols={isMobile ? 1 : 3}
+            spacing="md"
+          >
+            {loading ?
+              Array(6).fill(0).map((_, index) => (
+                <Skeleton key={index} className={styles.skeleton} height={360} radius="md" />
+              ))
+              : (
+                products.length > 0 ?
+                  products.map(product =>
+                    <Link to={`/productos/${product.id}`} state={{ productItem: product }} style={{ textDecoration: 'none' }} key={product.id}>
+                      <ProductCard
+                        title={product.name}
+                        image1={product.image1}
+                        image2={product.image2}
+                        price={"$" + product.price}
+                      />
+                    </Link>
+                  ) : (
+                    <p>No hay productos en esta categoría.</p>
+                  ))}
+          </SimpleGrid>
+        </Container>
+      </Container>
+      <Footer />
     </div>
   );
 }
