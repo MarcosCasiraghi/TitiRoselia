@@ -7,7 +7,8 @@ const productsCollection = collection(db, "products");
 // Get all products with selected fields
 export const getAllProducts = async () => {
     const q = query(
-        productsCollection
+        productsCollection,
+        where("show" , "==", true)
     )
     const querySnapshot = await getDocs(q);
     return querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
@@ -17,8 +18,9 @@ export const getAllProducts = async () => {
 export const getByCategory = async (category) => {
     const q = query(
         productsCollection, 
-        where("category", "==", category))
-
+        where("category", "==", category),
+        where("show", "==", true)
+    );
     const querySnapshot = await getDocs(q);
     return querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 }
@@ -27,7 +29,10 @@ export const getByCategory = async (category) => {
 export const getProductById = async (id) => {
     const docRef = doc(db, "products", id);
     const docSnap = await getDoc(docRef);
-    return docSnap.exists() ? { id: docSnap.id, ...docSnap.data() } : null;
+    if (docSnap.exists()) return null;
+
+    const data = { id: docSnap.id, ...docSnap.data() };
+    return data.show? data : null;
 };
 
 // For later: Add, update, and delete products

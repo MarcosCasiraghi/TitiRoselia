@@ -68,3 +68,36 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# Build and Deploy to Firebase Hosting
+
+1. Install dependencies:
+   ```bash
+   yarn install
+   # or
+   npm install
+   ```
+
+2. Build the project:
+   ```bash
+   yarn build
+   # or
+   npm run build
+   ```
+
+3. Log in to Firebase (if not already):
+   ```bash
+   firebase login
+   ```
+
+4. Deploy to Firebase Hosting:
+   ```bash
+   firebase deploy
+   ```
+
+Make sure you have the Firebase CLI installed. If not, install it with:
+```bash
+npm install -g firebase-tools
+```
+
+Your production environment variables should be set in `.env.production` before building.
