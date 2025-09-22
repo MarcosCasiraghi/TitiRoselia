@@ -101,3 +101,23 @@ npm install -g firebase-tools
 ```
 
 Your production environment variables should be set in `.env.production` before building.
+
+## Deployment Commands Explained
+
+### Preview Deployments
+- `firebase hosting:channel:deploy preview_hero_change`
+  - Deploys your app to a temporary preview channel named `preview_hero_change`.
+  - This is not a production deployment; it's useful for testing changes or sharing a preview URL before going live.
+  - The deployed version is accessible via a unique preview URL and does not overwrite your main site.
+
+### Production Deployments
+- `npx firebase deploy --only hosting`
+  - Deploys only the Hosting part of your Firebase project (your web app) to production.
+  - Other Firebase services (like Functions, Firestore rules, etc.) are not deployed.
+  - Useful if you only want to update the website and not touch other services.
+
+- `firebase deploy`
+  - Deploys all configured Firebase services (Hosting, Functions, Firestore, etc.) to production.
+  - Use this if you want to deploy everything at once.
+
+You can use either `npx firebase` or a globally installed `firebase` CLI. `npx` ensures you use the local version if available.
