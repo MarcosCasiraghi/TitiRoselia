@@ -1,6 +1,6 @@
 import styles from './product.module.css'
 import { useEffect, useState } from "react";
-import { useLocation, useParams, Link } from "react-router-dom";
+import { useLocation, useParams, Link, Navigate } from "react-router-dom";
 import { getProductById } from "../../firebase/firestore/firebase_products.js"
 import HeaderMenu from "../../components/header/header.js";
 import Footer from "../../components/footer/footer.js";
@@ -35,51 +35,51 @@ function Product() {
     const [firstCol, setFirstCol] = useState(null)
     const [secondCol, setSecondCol] = useState(null)
 
+    const [notFound, setNotFound] = useState(false);
 
     useEffect(() => {
         if (state?.productItem) {
             setProduct(state.productItem)
-            if (state.productItem.category === 'mini') {
-                const lines = state.productItem.options.split("\\n").filter((line) => line.trim() !== "")
-                const midIndex = Math.ceil(lines.length / 2)
-                setMiddleIndex(midIndex)
-                setFirstCol(lines.slice(0, midIndex))
-                setSecondCol(lines.slice(midIndex))
-            }
-            if (state.productItem.category === 'alfajores') {
-                const lines = state.productItem.options.split("\\n").filter((line) => line.trim() !== "")
-                setFirstCol(lines)
-            }
-            const text = `Hola! Quiero pedir una ${state.productItem.name}`
-            setLink(`https://wa.me/541138230020?text=` + encodeURIComponent(text))
+            setupProductData(state.productItem)
         }
         else {
             setLoading(true);
             getProductById(productId)
                 .then((data) => {
-                    setProduct(data);
-                    if (data.category === 'mini') {
-                        const lines = data.options.split("\\n").filter((line) => line.trim() !== "")
-                        const midIndex = Math.ceil(lines.length / 2)
-                        setMiddleIndex(midIndex)
-                        setFirstCol(lines.slice(0, midIndex))
-                        setSecondCol(lines.slice(midIndex))
+                    if (!data) {
+                        setNotFound(true);
+                    } else {
+                        setProduct(data);
+                        setupProductData(data);
                     }
-                    if (data.category === 'alfajores') {
-                        const lines = state.productItem.options.split("\\n").filter((line) => line.trim() !== "")
-                        setFirstCol(lines)
-                    }
-                    const text = `Hola! Quiero pedir una ${data.name}`
-                    setLink(`https://wa.me/541138230020?text=` + encodeURIComponent(text))
-
                     setLoading(false);
                 })
         }
     }, [state, productId]);
 
+    function setupProductData(data) {
+        if (data.category === "mini") {
+            const lines = data.options.split("\\n").filter((line) => line.trim() !== "");
+            const midIndex = Math.ceil(lines.length / 2);
+            setMiddleIndex(midIndex);
+            setFirstCol(lines.slice(0, midIndex));
+            setSecondCol(lines.slice(midIndex));
+        }
+        if (data.category === "alfajores") {
+            const lines = data.options.split("\\n").filter((line) => line.trim() !== "");
+            setFirstCol(lines);
+        }
+        const text = `Hola! Quiero pedir una ${data.name}`;
+        setLink(`https://wa.me/541138230020?text=` + encodeURIComponent(text));
+    }
+
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+
+    if (notFound) {
+        return <Navigate to="/not-found" replace />;
+    }
 
     if (loading) {
         return (
