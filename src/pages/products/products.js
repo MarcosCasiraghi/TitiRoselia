@@ -14,6 +14,7 @@ const categoryToTitle = new Map([
   ["grande", "Tortas Grandes"],
   ["chica", "Tortas Chicas"],
   ["mini", "Tortas minis"],
+  ["dia-de-la-madre", "Especial Día de la Madre"],
   ["alfajores", "Alfajores"]
 ])
 
