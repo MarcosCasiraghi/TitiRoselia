@@ -46,3 +46,9 @@
     color: #f1f0ec !important;
     width: fit-content;
 }
+
+.optionsLink {
+    color: #201b5b;
+    text-decoration: underline;
+    position: relative;
+}

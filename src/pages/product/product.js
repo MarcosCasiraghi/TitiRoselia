@@ -14,13 +14,14 @@ const categoryToTitle = new Map([
     ["grande", "Tortas Grandes"],
     ["chica", "Tortas Chicas"],
     ["mini", "Tortas minis"],
+    ["dia-de-la-madre", "Especial Día de la Madre"],
     ["alfajores", "Alfajores"]
 ])
 
 function Product() {
 
     const isMobile = useMediaQuery("(max-width: 768px)");
-    const slideHeight = isMobile ? "300px" : "400px"
+    const slideHeight = isMobile ? "500px" : "400px"
 
     const { productId } = useParams();
 
@@ -58,7 +59,7 @@ function Product() {
     }, [state, productId]);
 
     function setupProductData(data) {
-        if (data.category === "mini") {
+        if (data.category === "mini" || data.category === "dia-de-la-madre") {
             const lines = data.options.split("\\n").filter((line) => line.trim() !== "");
             const midIndex = Math.ceil(lines.length / 2);
             setMiddleIndex(midIndex);
@@ -133,15 +134,28 @@ function Product() {
                                             <br />
                                             <Text size="lg" className="mt-4">{product.description}</Text>
                                             <br />
-                                            {product.category === "mini" && (
+                                            {(product.category === "mini" || product.category === "dia-de-la-madre") && (
                                                 <>
                                                     <Box style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
                                                         {/* First Column */}
                                                         <List>
                                                             {firstCol && firstCol.length > 0 &&
-                                                                firstCol.map((line, index) => (
-                                                                    <List.Item key={index}>{line}</List.Item>
-                                                                ))
+                                                                firstCol.map((line, index) => {
+                                                                    if (product.category === "dia-de-la-madre" && line.startsWith("Torta de 10cm a elección")) {
+                                                                        const [main, extra] = line.split(" (ver opciones)");
+                                                                        return (
+                                                                            <List.Item key={index} >
+                                                                                <span>{main.trim()} (</span>
+                                                                                <Link to="/productos?categoria=chica" className={styles.optionsLink} style={{ fontSize: "1rem" }}>
+                                                                                    ver opciones
+                                                                                </Link>
+                                                                                <span>)</span>
+                                                                            </List.Item>
+                                                                        );
+                                                                    } else {
+                                                                        return <List.Item key={index}>{line}</List.Item>;
+                                                                    }
+                                                                })
                                                             }
                                                             {secondCol && secondCol.length > 0 &&
                                                                 secondCol.map((line, index) => (
@@ -196,20 +210,39 @@ function Product() {
                                             <br />
                                             <Text size="lg" className="mt-4">{product.description}</Text>
                                             <br />
-                                            {product.category === "mini" && (
+                                            {(product.category === "mini" || product.category === "dia-de-la-madre") && (
                                                 <>
                                                     <Box style={{ display: "flex", gap: "2rem" }}>
                                                         {/* First Column */}
-                                                        <List>
+                                                        <List style={{ width: "50%" }}>
                                                             {firstCol && firstCol.length > 0 &&
-                                                                firstCol.map((line, index) => (
-                                                                    <List.Item key={index}>{line}</List.Item>
-                                                                ))
+                                                                firstCol.map((line, index) => {
+                                                                    if (
+                                                                        product.category === "dia-de-la-madre" &&
+                                                                        line.trim().startsWith("Torta de 10cm a elección") &&
+                                                                        line.includes("(ver opciones)")
+                                                                    ) {
+                                                                        const [main, extra] = line.split("(ver opciones)");
+                                                                        return (
+                                                                            <List.Item key={index}>
+                                                                                <span>{main.trim()}</span>
+                                                                                <br />
+                                                                                <span>(</span>
+                                                                                <Link to="/productos?categoria=chica" className={styles.optionsLink} style={{ fontSize: "1rem" }}>
+                                                                                    ver opciones
+                                                                                </Link>
+                                                                                <span>)</span>
+                                                                            </List.Item>
+                                                                        );
+                                                                    } else {
+                                                                        return <List.Item key={index}>{line}</List.Item>;
+                                                                    }
+                                                                })
                                                             }
                                                         </List>
 
                                                         {/* Second Column */}
-                                                        <List>
+                                                        <List style={{ width: "50%" }}>
                                                             {secondCol && secondCol.length > 0 &&
                                                                 secondCol.map((line, index) => (
                                                                     <List.Item key={index + middleIndex}>{line}</List.Item>

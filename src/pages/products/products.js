@@ -53,6 +53,11 @@ function Products() {
             {categoryToTitle.get(category) || "Nuestros Productos"}
           </Text>
         </div>
+        {category === "dia-de-la-madre" &&
+          <>
+            <Text>Colaboración con las flores de Barbara Soldati</Text>
+          </>
+        }
 
         <Container py="xl" size='lg' fluid className={styles.product_content}>
           <SimpleGrid
