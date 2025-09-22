@@ -8,9 +8,10 @@ function DiaDeLaMadre() {
     return (
         <section className={styles.half_content}>
             <div className={styles.overlay}>
-                <Text className={styles.title}>¡Especial día de la <span style={{ fontStyle: 'italic' }}>Madre</span>!</Text>
+                <Text className={styles.title}>¡Especial <span style={{ fontStyle: 'italic' }}>día de la Madre</span>!</Text>
+                <Text className={styles.colaboracion}>Titi Roselia & Barbara Soldati</Text>
                 <div className={styles.button_container}>
-                    <button variant='outline' className={styles.btn} onClick={() => navigate('/productos?categoria=dia-de-la-madre')}>Ver Caja</button>
+                    <button variant='outline' className={styles.btn} onClick={() => navigate('/productos?categoria=dia-de-la-madre')}>Ver Cajas</button>
                 </div>
             </div>
         </section>
