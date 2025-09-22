@@ -13,7 +13,8 @@ import { useMediaQuery } from "@mantine/hooks";
 const categoryToTitle = new Map([
   ["grande", "Tortas Grandes"],
   ["chica", "Tortas Chicas"],
-  ["mini", "Tortas minis"]
+  ["mini", "Tortas minis"],
+  ["alfajores", "Alfajores"]
 ])
 
 function Products() {
