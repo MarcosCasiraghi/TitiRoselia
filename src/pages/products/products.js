@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { getAllProducts, getByCategory } from "../../firebase/firestore/firebase_products.js"
 import ProductCard from '../../components/product_card/productCard.js';
-import { Container, SimpleGrid, Skeleton, Text } from '@mantine/core';
+import { Container, SimpleGrid, Skeleton, Modal, Button, Text } from '@mantine/core';
 import Footer from '../../components/footer/footer.js';
 import { useMediaQuery } from "@mantine/hooks";
 
@@ -23,6 +23,8 @@ function Products() {
   const category = searchParams.get("categoria");
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const [opened, setOpened] = useState(false);
 
   const isMobile = useMediaQuery("(max-width: 768px)");
 
@@ -43,6 +45,21 @@ function Products() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    const hasSeenPromo = sessionStorage.getItem("seenMothersDayPromo");
+
+    if (category !== "dia-de-la-madre" && !hasSeenPromo) {
+      const timer = setTimeout(() => {
+        setOpened(true);
+        sessionStorage.setItem("seenMothersDayPromo", "true");
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    } else {
+      sessionStorage.setItem("seenMothersDayPromo", "true");
+    }
+  }, [category]);
 
   return (
     <div className={styles.full_size}>
@@ -86,6 +103,51 @@ function Products() {
         </Container>
       </Container>
       <Footer />
+
+      <Modal
+        opened={opened}
+        onClose={() => setOpened(false)}
+        centered
+        withCloseButton={false}
+        size="xl"
+        classNames={{
+          content: styles.modalContent, // whole modal box
+          header: styles.modalHeader,   // header wrapper (where close button sits)
+          close: styles.modalClose,     // close button
+          body: styles.modalBody        // wrapper of your custom body
+        }}
+      >
+        <div className={styles.modalInner}>
+          <button className={styles.modalCustomClose} onClick={() => setOpened(false)}>
+            ✕
+          </button>
+
+          {/* Left image side */}
+          <div className={styles.modalImage} />
+
+          {/* Right content side */}
+          <div className={styles.modalText}>
+            <Text size="xl" mb="md" className={styles.modalTitle}>
+              Desayuno completo + Ramo de flores = el regalo ideal para Mamá
+            </Text>
+            <Text size="md" mb="lg" className={styles.modalDescription}>
+              ¡No te quedes sin tu caja especial para regalar en el Día de la Madre!
+            </Text>
+            <Button
+              fullWidth
+              className={styles.modalButton}
+              onClick={() => {
+                setOpened(false);
+                window.location.href = "/productos?categoria=dia-de-la-madre";
+              }}
+            >
+              Ver Cajas
+            </Button>
+          </div>
+        </div>
+      </Modal>
+
+
     </div>
   );
 }

@@ -47,3 +47,109 @@
     margin-top: auto;
     width: 100%;
 }
+
+/* Modal */
+/* Make the whole modal box dark */
+.modalContent {
+  background-color: #201b5b;
+  color: #f1f0ec;
+  padding: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 70vh;
+}
+
+/* Hide Mantine’s white header background */
+.modalHeader {
+  background-color: #201b5b;
+  color: #f1f0ec;
+}
+
+/* Style the close button (X) */
+.modalClose {
+  color: #f1f0ec;
+}
+
+/* Mantine wraps body in its own div */
+.modalBody {
+  padding: 0; /* remove default padding */
+  height: 100%;
+}
+
+/* Actual flex layout you made */
+.modalInner {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+}
+
+.modalCustomClose {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #f1f0ec;
+  cursor: pointer;
+  z-index: 10;
+}
+
+
+/* Left image */
+.modalImage {
+  flex: 1;
+  background-image: url("/public/images/dia_de_la_madre/modal_image2.webp");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Right text area */
+.modalText {
+  flex: 1;
+  background-color: #201b5b;
+  color: #f1f0ec;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modalTitle {
+  color: #f1f0ec;
+  font-weight: bold;
+}
+
+.modalDescription {
+  color: #f1f0ec;
+}
+
+.modalButton {
+    background-color: #f1f0ec !important;
+    color: #201b5b !important;
+}
+
+/* Mobile: stack vertically */
+@media (max-width: 768px) {
+  .modalContent {
+    height: auto; /* let it grow naturally */
+    max-height: 90vh; /* avoid overflowing */
+  }
+
+  .modalInner {
+    flex-direction: column;
+  }
+
+  .modalImage {
+    height: 40vh; /* control image height */
+    flex: none;   /* don’t let flex override it */
+    background-position: center; /* show more top on mobile */
+  }
+
+  .modalText {
+    flex: none;
+    padding: 1.5rem;
+    text-align: center; /* optional: center text on mobile */
+  }
+}
