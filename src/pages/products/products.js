@@ -128,11 +128,13 @@ function Products() {
           {/* Right content side */}
           <div className={styles.modalText}>
             <Text size="xl" mb="md" className={styles.modalTitle}>
-              Desayuno completo + Ramo de flores = el regalo ideal para Mamá
+              Box desayuno + Ramo de flores = El regalo ideal para Mamá
             </Text>
             <Text size="md" mb="lg" className={styles.modalDescription}>
               ¡No te quedes sin tu caja especial para regalar en el Día de la Madre!
             </Text>
+            <span className={styles.modalLimitedEdition}>Stock limitado</span>
+            <br/>
             <Button
               fullWidth
               className={styles.modalButton}

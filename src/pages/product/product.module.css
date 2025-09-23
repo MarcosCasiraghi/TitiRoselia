@@ -52,3 +52,22 @@
     text-decoration: underline;
     position: relative;
 }
+
+.limitedEdition {
+    position: static;
+    display: block;
+    margin: 0 0 1rem 0;
+    font-size: 0.85rem;
+    color: #201b5b;
+    font-style: italic;
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .limitedEdition {
+        font-size: 0.8rem;
+        margin: 0 0 1rem 0;
+        text-align: center;
+    }
+
+}

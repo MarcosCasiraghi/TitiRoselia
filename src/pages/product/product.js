@@ -179,6 +179,9 @@ function Product() {
                                                     <br />
                                                 </>
                                             )}
+                                            {product.category === "dia-de-la-madre" &&
+                                                <span className={styles.limitedEdition}>Stock limitado</span>
+                                            }
                                             <Button className={styles.contact_button} rightSection={<IconBrandWhatsapp size={20} />} component='a' href={link} target="_blank" rel="noopener noreferrer">
                                                 ¡Pedí ahora!
                                             </Button>
@@ -264,6 +267,9 @@ function Product() {
                                                     <br />
                                                 </>
                                             )}
+                                            {product.category === "dia-de-la-madre" &&
+                                                <span className={styles.limitedEdition}>Stock limitado</span>
+                                            }
                                             <Button className={styles.contact_button} rightSection={<IconBrandWhatsapp size={20} />} component='a' href={link} target="_blank" rel="noopener noreferrer">
                                                 ¡Pedí ahora!
                                             </Button>
