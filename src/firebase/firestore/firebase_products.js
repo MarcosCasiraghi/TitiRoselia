@@ -29,7 +29,7 @@ export const getByCategory = async (category) => {
 export const getProductById = async (id) => {
     const docRef = doc(db, "products", id);
     const docSnap = await getDoc(docRef);
-    if (docSnap.exists()) return null;
+    if (!docSnap.exists()) return null;
 
     const data = { id: docSnap.id, ...docSnap.data() };
     return data.show? data : null;
