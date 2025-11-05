@@ -134,7 +134,7 @@ function Product() {
                                             <Text size="md">{product.size}</Text>
                                             <br />
                                             <Text size="xl" className={styles.price_text} weight={700}>
-                                                {!isDiaDeLaMadre(product.name) ? product.price : "SIN STOCK"}
+                                                {!isDiaDeLaMadre(product.name) ? "$" + product.price : "SIN STOCK"}
                                             </Text>
                                             <br />
                                             <Text size="lg" className="mt-4">{product.description}</Text>
@@ -214,7 +214,7 @@ function Product() {
                                             <Text size="md">{product.size}</Text>
                                             <br />
                                             <Text size="xl" className={styles.price_text} weight={700}>
-                                                {!isDiaDeLaMadre(product.name) ? product.price : "SIN STOCK"}
+                                                {!isDiaDeLaMadre(product.name) ? "$" + product.price : "SIN STOCK"}
                                             </Text>
                                             <br />
                                             <Text size="lg" className="mt-4">{product.description}</Text>
