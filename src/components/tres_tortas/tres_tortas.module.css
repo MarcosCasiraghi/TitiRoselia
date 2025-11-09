@@ -73,3 +73,50 @@
 .imageContainer:hover .overlay {
     opacity: 1;
 }
+
+/* small spacing for carousel container */
+.carousel {
+  margin-top: 1rem;
+}
+
+/* mobile-specific image height and spacing */
+@media (max-width: 768px) {
+
+  /* Disable violet overlay & hover brightness */
+  .overlay {
+    background: none !important;
+    opacity: 1 !important; /* always visible so the button shows */
+    align-items: flex-start;
+    padding-bottom: 1.5rem; /* spacing from bottom */
+  }
+
+  .imageContainer:hover .image,
+  .imageContainer:hover .overlay {
+    transform: none;
+    filter: none;
+    opacity: 1;
+  }
+
+  /* Always visible button with inverted colors */
+  .btn {
+    background-color: #201b5b;
+    color: #f1f0ec;
+    border: 2px solid #201b5b;
+    opacity: 1;
+    margin-top: 2rem;
+  }
+
+  .btn:active {
+    transform: scale(0.96);
+  }
+
+  .title {
+    font-size: 1.8rem;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .container {
+    padding: 12px;
+  }
+}
