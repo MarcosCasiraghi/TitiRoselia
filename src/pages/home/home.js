@@ -12,6 +12,7 @@ import TitiRosa from '../../components/titirosa/titirosa';
 import GabiPili from '../../components/gabipili/gabipili';
 import ComoPedir from '../../components/como_pedir/como_pedir';
 import Alfajores from '../../components/alfajores/alfajores';
+import TresTortas from '../../components/tres_tortas/tres_tortas';
 // import DiaDeLaMadre from '../../components/dia_de_la_madre/dia_de_la_madre';
 
 
@@ -32,6 +33,10 @@ function Home() {
                 <InfiniteSlide /> */}
 
                 <ProductOptions />
+
+                <InfiniteSlide />
+
+                <TresTortas />
 
                 <InfiniteSlide />
 

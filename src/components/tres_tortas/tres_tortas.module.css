@@ -1,0 +1,75 @@
+.container {
+    /* dejar que el contenido defina la altura; quitar 100vh para que no estire innecesariamente */
+    padding: 10px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.title_overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    white-space: nowrap;
+    padding: 0 1rem;
+    color: #201b5b;
+
+}
+
+.imageContainer {
+    position: relative;
+    margin: 10px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.image {
+    width: 100%;
+    /* fijar una altura para cropear verticalmente dentro del contenedor con overflow:hidden */
+    height: 30rem; /* escritorio */
+    object-fit: cover; /* recorta la imagen por arriba/abajo manteniendo el centro */
+    display: block;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(32, 27, 91, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.btn {
+    background-color: transparent;
+    background-color: rgb(241, 240, 236, 0.7);
+    color: #201b5b;
+    border: 2px solid transparent;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+.imageContainer:hover .image {
+    transform: scale(1.05);
+    filter: brightness(0.8);
+}
+
+.imageContainer:hover .overlay {
+    opacity: 1;
+}
