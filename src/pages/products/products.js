@@ -14,6 +14,7 @@ const categoryToTitle = new Map([
   ["grande", "Tortas Grandes"],
   ["chica", "Tortas Chicas"],
   ["mini", "Tortas minis"],
+  ["navidad", "Especial Navidad"],
   ["dia-de-la-madre", "Especial Día de la Madre"],
   ["alfajores", "Alfajores"]
 ])
@@ -31,12 +32,45 @@ function Products() {
 
   useEffect(() => {
     setLoading(true)
-    const fetchProducts = category && category.trim() !== ""
-      ? getByCategory(category)
-      : getAllProducts();
+
+    let fetchProducts;
+
+    if (category === "grande") {
+      fetchProducts = Promise.all([
+        getByCategory("grande"),
+        getByCategory("navidad")
+      ]).then(([grandes, navidad]) => [...navidad, ...grandes]); // navidad primero
+    } else {
+      fetchProducts = category && category.trim() !== ""
+        ? getByCategory(category)
+        : getAllProducts();
+    }
 
     fetchProducts.then((data) => {
-      setProducts(data);
+
+      const sorted = data.sort((a, b) => {
+        // 1) NAVIDAD primero para "todos" y "grande"
+        // NAVIDAD primero en todos y en grande
+        const isAll = !category || category.trim() === "";
+        const isGrande = category === "grande";
+
+        const aIsNav = a.category === "navidad";
+        const bIsNav = b.category === "navidad";
+
+        if (isAll || isGrande) {
+          if (aIsNav && !bIsNav) return -1;
+          if (!aIsNav && bIsNav) return 1;
+        }
+
+        // 2) Luego mover "Día de la Madre" al final
+        const aIsDiaMadre = a.name?.toLowerCase().includes("día de la madre");
+        const bIsDiaMadre = b.name?.toLowerCase().includes("día de la madre");
+        if (aIsDiaMadre && !bIsDiaMadre) return 1;
+        if (!aIsDiaMadre && bIsDiaMadre) return -1;
+
+        return 0;
+      });
+      setProducts(sorted);
       setLoading(false);
     });
 
