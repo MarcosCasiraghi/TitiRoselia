@@ -14,10 +14,12 @@ const categoryToTitle = new Map([
   ["grande", "Tortas Grandes"],
   ["chica", "Tortas Chicas"],
   ["mini", "Tortas minis"],
-  ["navidad", "Especial Navidad"],
-  ["dia-de-la-madre", "Especial Día de la Madre"],
+  // ["navidad", "Especial Navidad"],
+  // ["dia-de-la-madre", "Especial Día de la Madre"],
   ["alfajores", "Alfajores"]
 ])
+
+const DISABLED_CATEGORIES = ["navidad", "dia-de-la-madre"];
 
 function Products() {
   const [searchParams] = useSearchParams();
@@ -33,13 +35,19 @@ function Products() {
   useEffect(() => {
     setLoading(true)
 
+    if (DISABLED_CATEGORIES.includes(category)) {
+      setProducts([]);
+      setLoading(false);
+      return;
+    }
+
     let fetchProducts;
 
     if (category === "grande") {
       fetchProducts = Promise.all([
         getByCategory("grande"),
         getByCategory("navidad")
-      ]).then(([grandes, navidad]) => [...navidad, ...grandes]); // navidad primero
+      ]).then(([grandes, navidad]) => [...grandes, ...navidad]); // navidad ultimo
     } else {
       fetchProducts = category && category.trim() !== ""
         ? getByCategory(category)
@@ -48,29 +56,35 @@ function Products() {
 
     fetchProducts.then((data) => {
 
-      const sorted = data.sort((a, b) => {
-        // 1) NAVIDAD primero para "todos" y "grande"
-        // NAVIDAD primero en todos y en grande
-        const isAll = !category || category.trim() === "";
-        const isGrande = category === "grande";
+      let ordered = [...data];
 
-        const aIsNav = a.category === "navidad";
-        const bIsNav = b.category === "navidad";
+      const isAll = !category || category.trim() === "";
+      const isGrande = category === "grande";
 
-        if (isAll || isGrande) {
-          if (aIsNav && !bIsNav) return -1;
-          if (!aIsNav && bIsNav) return 1;
-        }
+      if (isGrande) {
+        const grandes = ordered.filter(p => p.category === "grande");
+        const navidad = ordered
+          .filter(p => p.category === "navidad")
+          .map(p => ({ ...p, outOfStock: true }));
 
-        // 2) Luego mover "Día de la Madre" al final
-        const aIsDiaMadre = a.name?.toLowerCase().includes("día de la madre");
-        const bIsDiaMadre = b.name?.toLowerCase().includes("día de la madre");
-        if (aIsDiaMadre && !bIsDiaMadre) return 1;
-        if (!aIsDiaMadre && bIsDiaMadre) return -1;
+        ordered = [...grandes, ...navidad];
+      }
 
-        return 0;
-      });
-      setProducts(sorted);
+      if (isAll) {
+        const normales = ordered.filter(
+          p => p.category !== "navidad" && p.category !== "dia-de-la-madre"
+        );
+
+        const especiales = ordered
+          .filter(
+            p => p.category === "navidad" || p.category === "dia-de-la-madre"
+          )
+          .map(p => ({ ...p, outOfStock: true }));
+
+        ordered = [...normales, ...especiales];
+      }
+
+      setProducts(ordered);
       setLoading(false);
     });
 
@@ -131,7 +145,7 @@ function Products() {
                         title={product.name}
                         image1={product.image1}
                         image2={product.image2}
-                        price={!isDiaDeLaMadre(product.name) ? "$" + product.price : "Sin stock"}
+                        price={product.outOfStock ? "SIN STOCK" : "$" + product.price}
                       />
                     </Link>
                   ) : (

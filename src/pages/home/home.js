@@ -29,9 +29,9 @@ function Home() {
             <div>
                 <HeaderMenu />
 
-                <Navidad />
+                {/* <Navidad />
 
-                <InfiniteSlide />
+                <InfiniteSlide /> */}
 
                 {/* <DiaDeLaMadre />
 

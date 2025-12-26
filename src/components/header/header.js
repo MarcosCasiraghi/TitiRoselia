@@ -17,8 +17,8 @@ const links = [
             { link: '/productos?categoria=chica', label: 'Tortas chicas' },
             { link: '/productos?categoria=mini', label: 'Tortas minis' },
             { link: '/productos?categoria=alfajores', label: 'Alfajores' },
-            { link: '/productos?categoria=navidad', label: 'Especial Navidad' },
-            { link: '/productos?categoria=dia-de-la-madre', label: 'Día de la Madre' },
+            // { link: '/productos?categoria=navidad', label: 'Especial Navidad' },
+            // { link: '/productos?categoria=dia-de-la-madre', label: 'Día de la Madre' },
             { link: '/productos', label: 'Ver todo' }
         ],
     },
