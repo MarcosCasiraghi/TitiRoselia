@@ -1,0 +1,149 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    padding: 20px 0;
+}
+
+.desktopWrapper {
+    position: relative;
+    width: 100%;
+}
+
+.mobileWrapper {
+    position: relative;
+    width: 100%;
+}
+
+.title_overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #201b5b;
+    line-height: 1.2;
+}
+
+.imageContainer {
+    position: relative;
+    margin: 10px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.85);
+    /* Light background for readability */
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.mobileOverlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    width: 100%;
+    text-align: center;
+    padding: 0 1rem;
+    pointer-events: none;
+    /* Allow swipes through the container */
+}
+
+/* Re-enable pointer events for interactive elements */
+.mobileOverlay button,
+.mobileOverlay .title {
+    pointer-events: auto;
+}
+
+.mobileOverlay .title {
+    pointer-events: none;
+    /* Let swipes pass through text */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    /* Improve legibility */
+    background-color: rgba(255, 255, 255, 0.6);
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    backdrop-filter: blur(2px);
+}
+
+.btn {
+    background-color: #201b5b;
+    color: #f1f0ec;
+    border: 2px solid transparent;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    background-color: transparent;
+    color: #201b5b;
+    border: 2px solid #201b5b;
+}
+
+.imageContainer:hover .image {
+    transform: scale(1.05);
+    filter: brightness(0.8);
+}
+
+.imageContainer:hover .overlay {
+    opacity: 1;
+}
+
+/* small spacing for carousel container */
+.carousel {
+    margin-top: 1rem;
+}
+
+/* mobile specific */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px 0;
+    }
+
+    .title {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .image {
+        border-radius: 0;
+    }
+
+    .overlay {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        background: none;
+        box-shadow: none;
+        padding: 1rem;
+    }
+}

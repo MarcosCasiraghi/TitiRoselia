@@ -14,6 +14,7 @@ import ComoPedir from '../../components/como_pedir/como_pedir';
 import Alfajores from '../../components/alfajores/alfajores';
 import TresTortas from '../../components/tres_tortas/tres_tortas';
 import Navidad from '../../components/navidad/navidad';
+import LimaMaracuya from '../../components/lima_maracuya/lima_maracuya';
 // import DiaDeLaMadre from '../../components/dia_de_la_madre/dia_de_la_madre';
 
 
@@ -38,6 +39,10 @@ function Home() {
                 <InfiniteSlide /> */}
 
                 <ProductOptions />
+
+                <InfiniteSlide />
+
+                <LimaMaracuya />
 
                 <InfiniteSlide />
 

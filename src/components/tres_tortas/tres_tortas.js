@@ -29,9 +29,9 @@ function TresTortas() {
 
     return (
         <div className={styles.container}>
-            <div className={styles.title_overlay}>
+            {/* <div className={styles.title_overlay}>
                 <Text className={styles.title}>Descubrí nuestras <i>nuevas</i> tortas!</Text>
-            </div>
+            </div> */}
             {isMobile ? (
                 /* MOBILE: Carousel */
                 <Carousel
