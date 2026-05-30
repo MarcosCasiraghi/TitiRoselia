@@ -20,6 +20,7 @@ const categoryToTitle = new Map([
 ])
 
 const DISABLED_CATEGORIES = ["navidad", "dia-de-la-madre"];
+const OUT_OF_STOCK_IDS = ["tarta_de_frutilla"];
 
 function Products() {
   const [searchParams] = useSearchParams();
@@ -83,6 +84,10 @@ function Products() {
 
         ordered = [...normales, ...especiales];
       }
+
+      ordered = ordered.map(p =>
+        OUT_OF_STOCK_IDS.includes(p.id) ? { ...p, outOfStock: true } : p
+      );
 
       setProducts(ordered);
       setLoading(false);
