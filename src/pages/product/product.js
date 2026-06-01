@@ -68,7 +68,7 @@ function Product() {
             setSecondCol(lines.slice(midIndex));
         }
         if (data.category === "alfajores") {
-            const lines = data.options.split("\\n").filter((line) => line.trim() !== "");
+            const lines = data.options?.split("\\n").filter((line) => line.trim() !== "");
             setFirstCol(lines);
         }
         const text = `Hola! Quiero pedir una ${data.name}`;

@@ -20,7 +20,6 @@ const categoryToTitle = new Map([
 ])
 
 const DISABLED_CATEGORIES = ["navidad", "dia-de-la-madre"];
-const OUT_OF_STOCK_IDS = ["tarta_de_frutilla"];
 
 function Products() {
   const [searchParams] = useSearchParams();
@@ -59,35 +58,10 @@ function Products() {
 
       let ordered = [...data];
 
-      const isAll = !category || category.trim() === "";
-      const isGrande = category === "grande";
+      const inStock = ordered.filter(p => p.outOfStock !== true);
+      const outOfStock = ordered.filter(p => p.outOfStock === true);
 
-      if (isGrande) {
-        const grandes = ordered.filter(p => p.category === "grande");
-        const navidad = ordered
-          .filter(p => p.category === "navidad")
-          .map(p => ({ ...p, outOfStock: true }));
-
-        ordered = [...grandes, ...navidad];
-      }
-
-      if (isAll) {
-        const normales = ordered.filter(
-          p => p.category !== "navidad" && p.category !== "dia-de-la-madre"
-        );
-
-        const especiales = ordered
-          .filter(
-            p => p.category === "navidad" || p.category === "dia-de-la-madre"
-          )
-          .map(p => ({ ...p, outOfStock: true }));
-
-        ordered = [...normales, ...especiales];
-      }
-
-      ordered = ordered.map(p =>
-        OUT_OF_STOCK_IDS.includes(p.id) ? { ...p, outOfStock: true } : p
-      );
+      ordered = [...inStock, ...outOfStock];
 
       setProducts(ordered);
       setLoading(false);
