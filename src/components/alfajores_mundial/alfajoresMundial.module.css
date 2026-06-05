@@ -1,0 +1,107 @@
+.section {
+    height: 100vh;
+    width: 100%;
+    background-image: url('/public/images/mundial/alfajores_mundial_background.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background-color: #f1f0ec;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 450px;
+    max-width: 88%;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* .topStripe {
+    height: 15px;
+    background: linear-gradient(
+        to bottom,
+        #74ACDF 0%, #74ACDF 33.33%,
+        #ffffff 33.33%, #ffffff 66.66%,
+        #c9a84c 66.66%, #c9a84c 100%
+    );
+} */
+
+.topStripe {
+    height: 15px;
+    background: linear-gradient(to bottom,
+            #74ACDF 0%, #74ACDF 20%,
+            #ffffff 20%, #ffffff 40%,
+            #c9a84c 40%, #c9a84c 60%,
+            #ffffff 60%, #ffffff 80%,
+            #74ACDF 80%, #74ACDF 100%
+
+
+        );
+}
+
+.cardContent {
+    padding: 2rem 2.5rem 2.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.stars {
+    color: #b8922a;
+    font-size: 1.4rem;
+    letter-spacing: 0.4rem;
+}
+
+.title {
+    color: #201b5b;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.25;
+    font-family: inherit;
+}
+
+.btn {
+    background-color: #201b5b;
+    color: #f1f0ec;
+    border: none;
+    padding: 11px 28px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+    margin-top: 0.25rem;
+}
+
+.btn:hover {
+    background-color: #2d2680;
+}
+
+@media screen and (max-width: 768px) {
+    .section {
+        height: 60vh;
+    }
+
+    .card {
+        width: 80%;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .cardContent {
+        padding: 1.5rem 1.75rem 2rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .title {
+        font-size: 1.3rem;
+    }
+}

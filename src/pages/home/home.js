@@ -12,6 +12,7 @@ import TitiRosa from '../../components/titirosa/titirosa';
 import GabiPili from '../../components/gabipili/gabipili';
 import ComoPedir from '../../components/como_pedir/como_pedir';
 import Alfajores from '../../components/alfajores/alfajores';
+import AlfajoresMundial from '../../components/alfajores_mundial/alfajoresMundial';
 import TresTortas from '../../components/tres_tortas/tres_tortas';
 import Navidad from '../../components/navidad/navidad';
 import LimaMaracuya from '../../components/lima_maracuya/lima_maracuya';
@@ -37,6 +38,9 @@ function Home() {
                 {/* <DiaDeLaMadre />
 
                 <InfiniteSlide /> */}
+                <AlfajoresMundial/>
+
+                <InfiniteSlide />
 
                 <ProductOptions />
 
@@ -50,7 +54,7 @@ function Home() {
 
                 <InfiniteSlide />
 
-                <Alfajores />
+                {/* <Alfajores /> */}
 
                 <InfiniteSlide />
 
@@ -60,7 +64,7 @@ function Home() {
 
                 <GabiPili />
 
-                <ComoPedir/>
+                <ComoPedir />
             </div>
             <Footer />
         </div>
