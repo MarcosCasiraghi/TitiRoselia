@@ -121,3 +121,37 @@ Your production environment variables should be set in `.env.production` before 
   - Use this if you want to deploy everything at once.
 
 You can use either `npx firebase` or a globally installed `firebase` CLI. `npx` ensures you use the local version if available.
+
+## Link Previews (Open Graph / WhatsApp)
+
+Since this is a client-side React app, scrapers like WhatsApp can't execute JavaScript and would only see the bare `index.html` shell — resulting in a generic, imageless link preview when sharing a product URL.
+
+### How it works
+
+A Firebase Cloud Function (`productOG`, defined in `functions/index.js`) intercepts all requests to `/productos/**`. It:
+
+1. Extracts the product ID from the URL (e.g. `tarta_de_frutilla` from `/productos/tarta_de_frutilla`)
+2. Fetches the matching Firestore document from the `products` collection using that ID
+3. Reads a bundled copy of `index.html` from `functions/public/index.html`
+4. Injects Open Graph meta tags into `<head>` using the product's `name`, `description`, and `image1` fields
+5. Serves the enhanced HTML to the requester
+
+Bots and scrapers read the OG tags. Regular users receive the same HTML and the React app boots normally.
+
+The `og:image` URL comes from the `image1` field in each Firestore product document, which is a Firebase Storage URL. No images are stored in the repo.
+
+### Why `functions/public/index.html` exists
+
+Create React App generates hashed filenames (e.g. `main.abc123.chunk.js`) that change on every build. The `postbuild` script in `package.json` copies `build/index.html` into `functions/public/index.html` after each build so the function always serves the correct script references. This file is a build artifact and is excluded from git.
+
+### Deploy (with functions)
+
+```bash
+# First time only — install function dependencies
+cd functions && yarn install && cd ..
+
+yarn build          # builds React app + copies index.html to functions/public/
+firebase deploy     # deploys hosting + Cloud Functions together
+```
+
+Cloud Functions require the **Blaze (pay-as-you-go)** billing plan in Firebase. The free tier covers 2M invocations/month.

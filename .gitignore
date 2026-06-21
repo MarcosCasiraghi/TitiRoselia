@@ -27,3 +27,7 @@ yarn-error.log*
 .firebase/hosting.*.cache
 serviceAccountKey.json
 updateCacheControl.js
+
+# Functions build artifact
+/functions/public/
+/functions/node_modules/
