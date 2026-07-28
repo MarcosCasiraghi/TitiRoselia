@@ -16,7 +16,8 @@ const categoryToTitle = new Map([
   ["mini", "Tortas minis"],
   // ["navidad", "Especial Navidad"],
   // ["dia-de-la-madre", "Especial Día de la Madre"],
-  ["alfajores", "Alfajores"]
+  ["alfajores", "Alfajores"],
+  ["brownies", "Brownies"]
 ])
 
 const DISABLED_CATEGORIES = ["navidad", "dia-de-la-madre"];
