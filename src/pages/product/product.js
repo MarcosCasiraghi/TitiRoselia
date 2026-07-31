@@ -8,17 +8,7 @@ import { Container, Grid, Text, Title, Loader, Card, Box, List, Button } from "@
 import { Carousel } from "@mantine/carousel";
 import { useMediaQuery } from "@mantine/hooks";
 import { IconBrandWhatsapp } from '@tabler/icons-react';
-
-
-const categoryToTitle = new Map([
-    ["grande", "Tortas Grandes"],
-    ["chica", "Tortas Chicas"],
-    ["mini", "Tortas minis"],
-    ["navidad", "Especial Navidad"],
-    ["dia-de-la-madre", "Especial Día de la Madre"],
-    ["alfajores", "Alfajores"],
-    ["brownies", "Brownies"]
-])
+import { categoryToTitle } from '../../data/categories';
 
 function Product() {
 

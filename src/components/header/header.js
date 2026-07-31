@@ -7,19 +7,14 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useCallback } from 'react';
 import { analytics } from '../../firebase/firebase';
 import { logEvent } from 'firebase/analytics';
+import { NAV_CATEGORIES } from '../../data/categories';
 
 
 const links = [
     {
         label: 'Productos',
         links: [
-            { link: '/productos?categoria=grande', label: 'Tortas grandes' },
-            { link: '/productos?categoria=chica', label: 'Tortas chicas' },
-            { link: '/productos?categoria=mini', label: 'Tortas minis' },
-            { link: '/productos?categoria=alfajores', label: 'Alfajores' },
-            { link: '/productos?categoria=brownies', label: 'Brownies' },
-            // { link: '/productos?categoria=navidad', label: 'Especial Navidad' },
-            // { link: '/productos?categoria=dia-de-la-madre', label: 'Día de la Madre' },
+            ...NAV_CATEGORIES.map(c => ({ link: `/productos?categoria=${c.slug}`, label: c.label })),
             { link: '/productos', label: 'Ver todo' }
         ],
     },

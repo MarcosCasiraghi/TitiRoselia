@@ -37,18 +37,18 @@ function Home() {
 
                 {/* <DiaDeLaMadre />
 
-                <InfiniteSlide /> */}
+                <InfiniteSlide /> 
                 <AlfajoresMundial/>
 
-                <InfiniteSlide />
+                <InfiniteSlide /> */}
 
                 <ProductOptions />
 
                 <InfiniteSlide />
 
-                <LimaMaracuya />
+                {/* <LimaMaracuya /> */}
 
-                <InfiniteSlide />
+                {/* <InfiniteSlide /> */}
 
                 <TresTortas />
 
@@ -56,7 +56,7 @@ function Home() {
 
                 {/* <Alfajores /> */}
 
-                <InfiniteSlide />
+                {/* <InfiniteSlide /> */}
 
                 <ImageCarousel />
 

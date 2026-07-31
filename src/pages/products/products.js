@@ -8,19 +8,7 @@ import ProductCard from '../../components/product_card/productCard.js';
 import { Container, SimpleGrid, Skeleton, Text } from '@mantine/core';
 import Footer from '../../components/footer/footer.js';
 import { useMediaQuery } from "@mantine/hooks";
-
-
-const categoryToTitle = new Map([
-  ["grande", "Tortas Grandes"],
-  ["chica", "Tortas Chicas"],
-  ["mini", "Tortas minis"],
-  // ["navidad", "Especial Navidad"],
-  // ["dia-de-la-madre", "Especial Día de la Madre"],
-  ["alfajores", "Alfajores"],
-  ["brownies", "Brownies"]
-])
-
-const DISABLED_CATEGORIES = ["navidad", "dia-de-la-madre"];
+import { categoryToTitle, DISABLED_CATEGORIES } from "../../data/categories";
 
 function Products() {
   const [searchParams] = useSearchParams();
