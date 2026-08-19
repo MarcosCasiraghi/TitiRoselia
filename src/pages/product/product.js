@@ -51,7 +51,7 @@ function Product() {
     }, [state, productId]);
 
     function setupProductData(data) {
-        if (data.category === "mini" || data.category === "dia-de-la-madre") {
+        if (data.category === "mini" || data.category === "dia-de-la-madre" || data.category === "desayuno") {
             const lines = data.options.split("\\n").filter((line) => line.trim() !== "");
             const midIndex = Math.ceil(lines.length / 2);
             setMiddleIndex(midIndex);
@@ -131,14 +131,14 @@ function Product() {
                                             <br />
                                             <Text size="lg" className="mt-4">{product.description}</Text>
                                             <br />
-                                            {(product.category === "mini" || product.category === "dia-de-la-madre") && (
+                                            {(product.category === "mini" || product.category === "dia-de-la-madre" || product.category === "desayuno") && (
                                                 <>
                                                     <Box style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
                                                         {/* First Column */}
                                                         <List>
                                                             {firstCol && firstCol.length > 0 &&
                                                                 firstCol.map((line, index) => {
-                                                                    if (product.category === "dia-de-la-madre" && line.startsWith("Torta de 10cm a elección")) {
+                                                                    if ((product.category === "dia-de-la-madre" || product.category === "desayuno") && line.startsWith("Torta de 10cm a elección")) {
                                                                         const [main, extra] = line.split(" (ver opciones)");
                                                                         return (
                                                                             <List.Item key={index} >
@@ -211,7 +211,7 @@ function Product() {
                                             <br />
                                             <Text size="lg" className="mt-4">{product.description}</Text>
                                             <br />
-                                            {(product.category === "mini" || product.category === "dia-de-la-madre") && (
+                                            {(product.category === "mini" || product.category === "dia-de-la-madre" || product.category === "desayuno") && (
                                                 <>
                                                     <Box style={{ display: "flex", gap: "2rem" }}>
                                                         {/* First Column */}
@@ -219,7 +219,7 @@ function Product() {
                                                             {firstCol && firstCol.length > 0 &&
                                                                 firstCol.map((line, index) => {
                                                                     if (
-                                                                        product.category === "dia-de-la-madre" &&
+                                                                        (product.category === "dia-de-la-madre" || product.category === "desayuno") &&
                                                                         line.trim().startsWith("Torta de 10cm a elección") &&
                                                                         line.includes("(ver opciones)")
                                                                     ) {

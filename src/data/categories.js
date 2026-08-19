@@ -4,6 +4,7 @@ export const CATEGORIES = [
   { slug: 'mini', label: 'Tortas Minis' },
   { slug: 'alfajores', label: 'Alfajores' },
   { slug: 'brownies', label: 'Brownies' },
+  { slug: 'desayuno', label: 'Desayuno' },
   { slug: 'navidad', label: 'Especial Navidad', hiddenFromNav: true, disabled: true },
   { slug: 'dia-de-la-madre', label: 'Especial Día de la Madre', hiddenFromNav: true, disabled: true },
 ];
