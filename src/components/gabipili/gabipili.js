@@ -12,6 +12,7 @@ function GabiPili() {
                 <img
                     src="/images/gabiypili_2.webp"
                     alt="gabiypili"
+                    loading="lazy"
                     className={styles.image}
                 />
             </div>
@@ -53,6 +54,7 @@ function GabiPili() {
                 <img
                     src="/images/gabiypili_2.webp"
                     alt="gabiypili"
+                    loading="lazy"
                     className={styles.image}
                 />
             </Grid.Col>

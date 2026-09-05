@@ -66,6 +66,7 @@ async function uploadImage(localPath, destPath) {
   await bucket.upload(localPath, {
     destination: destPath,
     metadata: {
+      cacheControl: 'public,max-age=31536000',
       metadata: { firebaseStorageDownloadTokens: token },
     },
   });

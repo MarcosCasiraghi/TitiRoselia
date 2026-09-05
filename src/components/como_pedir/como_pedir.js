@@ -38,13 +38,13 @@ function ComoPedir() {
                     loop
                 >
                     <Carousel.Slide>
-                        <Image src="/images/tres_chicas.webp" className={styles.mobileImage} />
+                        <Image src="/images/tres_chicas.webp" loading="lazy" className={styles.mobileImage} />
                     </Carousel.Slide>
                     <Carousel.Slide>
-                        <Image src="/images/chocotorta_chica.webp" className={styles.mobileImage} />
+                        <Image src="/images/chocotorta_chica.webp" loading="lazy" className={styles.mobileImage} />
                     </Carousel.Slide>
                     <Carousel.Slide>
-                        <Image src="/images/dos_chicas.webp" className={styles.mobileImage} />
+                        <Image src="/images/dos_chicas.webp" loading="lazy" className={styles.mobileImage} />
                     </Carousel.Slide>
                 </Carousel>
 
@@ -87,15 +87,15 @@ function ComoPedir() {
             <Grid.Col span={5} className={styles.masonry}>
                 <div className={styles.masonry_container}>
                     <div className={styles.column}>
-                        <Image src="/images/tres_chicas.webp" className={styles.image} />
-                        <Image src="/images/chocotorta_chica.webp" className={styles.image} />
+                        <Image src="/images/tres_chicas.webp" loading="lazy" className={styles.image} />
+                        <Image src="/images/chocotorta_chica.webp" loading="lazy" className={styles.image} />
                     </div>
                     <div className={styles.centered}>
                         <Text className={styles.hint}>
                             Pedí con al menos 48 horas de anticipación
                         </Text>
                         <br />
-                        <Image src="/images/dos_chicas.webp" className={styles.image} />
+                        <Image src="/images/dos_chicas.webp" loading="lazy" className={styles.image} />
                         <br />
                         <Text className={styles.hint}>
                             Consulta por opciones sin TACC

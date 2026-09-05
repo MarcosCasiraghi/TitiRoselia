@@ -48,6 +48,9 @@ function TresTortas() {
                                 <img
                                     src={torta.image}
                                     alt={torta.name}
+                                    width={788}
+                                    height={1400}
+                                    loading="lazy"
                                     className={styles.image}
                                 />
                                 <div className={styles.overlay}>
@@ -71,6 +74,9 @@ function TresTortas() {
                                 <img
                                     src={torta.image}
                                     alt={torta.name}
+                                    width={788}
+                                    height={1400}
+                                    loading="lazy"
                                     className={styles.image}
                                 />
                                 <div className={styles.overlay}>

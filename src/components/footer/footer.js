@@ -11,7 +11,7 @@ export default function Footer() {
         <div className={classes.footer}>
             <Container className={classes.inner}>
                 <div className={classes.logo_and_name}>
-                    <img src="/images/only_logo_outline.png" alt="Logo_outline" className={classes.logo} />
+                    <img src="/images/only_logo_outline.webp" alt="Logo_outline" loading="lazy" className={classes.logo} />
                     <Text className={classes.icon}>
                         Titi Roselia
                     </Text>

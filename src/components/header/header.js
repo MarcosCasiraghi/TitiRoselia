@@ -167,7 +167,7 @@ export default function HeaderMenu() {
                             }
                         }}
                     >
-                        <img src="/images/only_logo_outline.png" alt="Logo_outline" className={classes.logo} />
+                        <img src="/images/only_logo_outline.webp" alt="Logo_outline" className={classes.logo} />
                     </Link>
                     <Button 
                         component='a' 

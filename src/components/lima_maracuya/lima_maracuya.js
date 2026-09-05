@@ -39,6 +39,9 @@ function LimaMaracuya() {
                                 <img
                                     src={src}
                                     alt={`Lima y Maracuya ${index + 1}`}
+                                    width={675}
+                                    height={1200}
+                                    loading={index === 0 ? "eager" : "lazy"}
                                     className={styles.image}
                                 />
                             </Carousel.Slide>
@@ -57,6 +60,9 @@ function LimaMaracuya() {
                     <img
                         src="/images/lima_maracuya/lime_maracuya_desktop.webp"
                         alt="Lima y Maracuya"
+                        width={1920}
+                        height={1080}
+                        loading="lazy"
                         className={styles.image}
                     />
                     <div className={styles.overlay}>

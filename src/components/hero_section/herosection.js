@@ -54,8 +54,9 @@ function HeroSection() {
             {showLogo && (
                 <img
                     className={styles.logo}
-                    src="/images/logo_con_fondo_1.png"
+                    src="/images/logo_con_fondo_1.webp"
                     alt="Logo"
+                    fetchPriority="high"
                     style={{ opacity: opacity }}
                 />
             )}

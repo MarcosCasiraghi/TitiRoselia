@@ -8,7 +8,7 @@ function TitiRosa() {
     return isMobile ? (
         <div className={styles.historyMobile} id='about-section'>
             <div className={styles.image_container}>
-                <img src="/images/abuelas.webp" alt="abuelas" className={styles.abuelas} />
+                <img src="/images/abuelas.webp" alt="abuelas" width={633} height={394} loading="lazy" className={styles.abuelas} />
                 <Text className={styles.text_left}>Titi</Text>
                 <Text className={styles.text_right}>Rosa</Text>
             </div>
@@ -26,7 +26,7 @@ function TitiRosa() {
         <Grid className={styles.history} justify="center" align='center' id='about-section' >
             <Grid.Col className={styles.column} span={5} sm={12}>
                 <div className={styles.image_container}>
-                    <img src="/images/abuelas.webp" alt="abuelas" className={styles.abuelas} />
+                    <img src="/images/abuelas.webp" alt="abuelas" width={633} height={394} loading="lazy" className={styles.abuelas} />
                     <Text className={styles.text_left}>Titi</Text>
                     <Text className={styles.text_right}>Rosa</Text>
                 </div>

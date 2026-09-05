@@ -113,7 +113,13 @@ function Product() {
                                         <Carousel withIndicators loop>
                                             {product.images.map((image, index) => (
                                                 <Carousel.Slide key={index}>
-                                                    <img src={image} alt={`Product ${index}`} style={{ width: "100%", height: slideHeight, objectFit: "cover" }} />
+                                                    <img
+                                                        src={image}
+                                                        alt={`Product ${index}`}
+                                                        loading={index === 0 ? "eager" : "lazy"}
+                                                        fetchPriority={index === 0 ? "high" : "auto"}
+                                                        style={{ width: "100%", height: slideHeight, objectFit: "cover" }}
+                                                    />
                                                 </Carousel.Slide>
                                             ))}
                                         </Carousel>
@@ -193,7 +199,13 @@ function Product() {
                                         <Carousel withIndicators loop>
                                             {product.images.map((image, index) => (
                                                 <Carousel.Slide key={index}>
-                                                    <img src={image} alt={`Product ${index}`} style={{ width: "100%", height: slideHeight, objectFit: "cover" }} />
+                                                    <img
+                                                        src={image}
+                                                        alt={`Product ${index}`}
+                                                        loading={index === 0 ? "eager" : "lazy"}
+                                                        fetchPriority={index === 0 ? "high" : "auto"}
+                                                        style={{ width: "100%", height: slideHeight, objectFit: "cover" }}
+                                                    />
                                                 </Carousel.Slide>
                                             ))}
                                         </Carousel>
