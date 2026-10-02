@@ -4,9 +4,9 @@ export const CATEGORIES = [
   { slug: 'mini', label: 'Tortas Minis' },
   { slug: 'alfajores', label: 'Alfajores' },
   { slug: 'brownies', label: 'Brownies' },
-  { slug: 'desayuno', label: 'Desayuno' },
+  { slug: 'desayuno', label: 'Desayuno', hiddenFromNav: true, disabled: true },
   { slug: 'navidad', label: 'Especial Navidad', hiddenFromNav: true, disabled: true },
-  { slug: 'dia-de-la-madre', label: 'Especial Día de la Madre', hiddenFromNav: true, disabled: true },
+  { slug: 'dia-de-la-madre', label: 'Especial Día de la Madre', hiddenFromNav: false },
 ];
 
 export const categoryToTitle = new Map(CATEGORIES.map(c => [c.slug, c.label]));

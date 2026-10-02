@@ -100,7 +100,7 @@
 /* Left image */
 .modalImage {
   flex: 1;
-  background-image: url("/public/images/dia_de_la_madre/modal_image2.webp");
+  background-image: url("/public/images/dia_de_la_madre/dia_de_la_madre_modal.webp");
   background-size: cover;
   background-position: center;
 }

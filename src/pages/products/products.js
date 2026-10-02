@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { getAllProducts, getByCategory } from "../../firebase/firestore/firebase_products.js"
 import ProductCard from '../../components/product_card/productCard.js';
-import { Container, SimpleGrid, Skeleton, Text } from '@mantine/core';
+import { Container, SimpleGrid, Skeleton, Modal, Button, Text } from '@mantine/core';
 import Footer from '../../components/footer/footer.js';
 import { useMediaQuery } from "@mantine/hooks";
 import { categoryToTitle, DISABLED_CATEGORIES } from "../../data/categories";
@@ -16,7 +16,7 @@ function Products() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // const [opened, setOpened] = useState(false);
+  const [opened, setOpened] = useState(false);
 
   const isMobile = useMediaQuery("(max-width: 768px)");
 
@@ -62,24 +62,20 @@ function Products() {
     window.scrollTo(0, 0);
   }, []);
 
-  const isDiaDeLaMadre = (name) => {
-    return name.includes("día de la madre")
-  }
+  useEffect(() => {
+    const hasSeenPromo = sessionStorage.getItem("seenMothersDayPromo");
 
-  // useEffect(() => {
-  //   const hasSeenPromo = sessionStorage.getItem("seenMothersDayPromo");
+    if (category !== "dia-de-la-madre" && !hasSeenPromo) {
+      const timer = setTimeout(() => {
+        setOpened(true);
+        sessionStorage.setItem("seenMothersDayPromo", "true");
+      }, 3000);
 
-  //   if (category !== "dia-de-la-madre" && !hasSeenPromo) {
-  //     const timer = setTimeout(() => {
-  //       setOpened(true);
-  //       sessionStorage.setItem("seenMothersDayPromo", "true");
-  //     }, 3000);
-
-  //     return () => clearTimeout(timer);
-  //   } else {
-  //     sessionStorage.setItem("seenMothersDayPromo", "true");
-  //   }
-  // }, [category]);
+      return () => clearTimeout(timer);
+    } else {
+      sessionStorage.setItem("seenMothersDayPromo", "true");
+    }
+  }, [category]);
 
   return (
     <div className={styles.full_size}>
@@ -124,7 +120,7 @@ function Products() {
       </Container>
       <Footer />
 
-      {/* <Modal
+      <Modal
         opened={opened}
         onClose={() => setOpened(false)}
         centered
@@ -165,7 +161,7 @@ function Products() {
             </Button>
           </div>
         </div>
-      </Modal> */}
+      </Modal>
 
 
     </div>
