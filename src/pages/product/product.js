@@ -86,6 +86,11 @@ function Product() {
         );
     }
 
+    const isDiaDeLaMadre = (name) => {
+        console.log(name)
+        return name.includes("día de la madre")
+    }
+
     return (
         <div className={styles.full_size}>
             <HeaderMenu />
@@ -127,7 +132,7 @@ function Product() {
                                             <Text size="md">{product.size}</Text>
                                             <br />
                                             <Text size="xl" className={styles.price_text} weight={700}>
-                                                ${product.price}
+                                                {!isDiaDeLaMadre(product.name) ? "$" + product.price : "SIN STOCK"}
                                             </Text>
                                             <br />
                                             <Text size="lg" className="mt-4">{product.description}</Text>
@@ -177,12 +182,13 @@ function Product() {
                                                     <br />
                                                 </>
                                             )}
-                                            {product.category === "dia-de-la-madre" &&
-                                                <span className={styles.limitedEdition}>Stock limitado</span>
+                                            {
+                                                product.category !== "dia-de-la-madre" &&
+                                                <Button className={styles.contact_button} rightSection={<IconBrandWhatsapp size={20} />} component='a' href={link} target="_blank" rel="noopener noreferrer">
+                                                    ¡Pedí ahora!
+                                                </Button>
                                             }
-                                            <Button className={styles.contact_button} rightSection={<IconBrandWhatsapp size={20} />} component='a' href={link} target="_blank" rel="noopener noreferrer">
-                                                ¡Pedí ahora!
-                                            </Button>
+
                                         </Card>
                                     </Grid.Col>
                                 </>
@@ -212,7 +218,7 @@ function Product() {
                                             <Text size="md">{product.size}</Text>
                                             <br />
                                             <Text size="xl" className={styles.price_text} weight={700}>
-                                                ${product.price}
+                                                {!isDiaDeLaMadre(product.name) ? "$" + product.price : "SIN STOCK"}
                                             </Text>
                                             <br />
                                             <Text size="lg" className="mt-4">{product.description}</Text>
@@ -271,12 +277,12 @@ function Product() {
                                                     <br />
                                                 </>
                                             )}
-                                            {product.category === "dia-de-la-madre" &&
-                                                <span className={styles.limitedEdition}>Stock limitado</span>
+                                            {
+                                                product.category !== "dia-de-la-madre" &&
+                                                <Button className={styles.contact_button} rightSection={<IconBrandWhatsapp size={20} />} component='a' href={link} target="_blank" rel="noopener noreferrer">
+                                                    ¡Pedí ahora!
+                                                </Button>
                                             }
-                                            <Button className={styles.contact_button} rightSection={<IconBrandWhatsapp size={20} />} component='a' href={link} target="_blank" rel="noopener noreferrer">
-                                                ¡Pedí ahora!
-                                            </Button>
                                         </Card>
                                     </Grid.Col>
                                 </>

@@ -4,7 +4,7 @@
     position: relative;
     z-index: 2;
     width: 100%;
-    background-image: url('/public/images/dia_de_la_madre/dia_de_la_madre_home.webp');
+    background-image: url('/public/images/dia_de_la_madre/home_section_pc.webp');
     background-size: cover; /* Ensures the image covers the section */
     background-position: center 15%; /* Adjust to focus on the center */
     background-repeat: no-repeat;
@@ -64,7 +64,6 @@
     /* Adjusts for tablets and phones */
     .half_content {
         height: 40vh;
-        background-position: center 50%; /* Adjust to focus on the center */
     }
 
     .overlay {

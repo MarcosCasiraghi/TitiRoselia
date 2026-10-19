@@ -16,7 +16,7 @@ import AlfajoresMundial from '../../components/alfajores_mundial/alfajoresMundia
 import TresTortas from '../../components/tres_tortas/tres_tortas';
 import Navidad from '../../components/navidad/navidad';
 import LimaMaracuya from '../../components/lima_maracuya/lima_maracuya';
-import DiaDeLaMadre from '../../components/dia_de_la_madre/dia_de_la_madre';
+// import DiaDeLaMadre from '../../components/dia_de_la_madre/dia_de_la_madre';
 
 
 function Home() {
@@ -35,11 +35,10 @@ function Home() {
 
                 <InfiniteSlide /> */}
 
-                <DiaDeLaMadre />
+                {/* <DiaDeLaMadre />
 
-                <InfiniteSlide />
-
-                {/* <AlfajoresMundial/>
+                <InfiniteSlide /> 
+                <AlfajoresMundial/>
 
                 <InfiniteSlide /> */}
 
